@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>要点</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        outline: none;
+        text-decoration: none;
+        user-select: none;
+    }
+    </style>
+    <style type="text/css">
+    body {
+        width: 100vw;
+        height: 100vh;
+        background: url(bg.jpg) no-repeat center fixed;
+        background-size: 100%;
+    }
+
+    .container {
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        /*      width: 100vw;
+            height: 100vh;*/
+    }
+
+    .box {
+        margin-bottom: 5px;
+    }
+
+    h3 {
+        color: deepskyblue;
+        margin-top: 5px;
+    }
+
+    ul {
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+
+    .container ul:not(:nth-of-type(1)):not(:nth-of-type(2)):not(:nth-of-type(3)) {
+        display: none;
+    }
+
+    li {
+        float: left;
+        width: 25%;
+        border: 0.5px solid gainsboro;
+        padding: 3px;
+        text-align: center;
+        margin-top: 11px;
+        color: rgba(0, 0, 0, 0.7);
+        font-size: 12px;
+    }
+
+    li:active {
+        border-color: red;
+    }
+    </style>
+    <script type="text/javascript">
+    window.onload = function() {
+        const listEle = document.querySelectorAll('.box ul');
+        for (list of listEle) {
+            console.log();
+            const lastLi = list.children[list.children.length - 1]
+            lastLi && (lastLi.innerText == "...") &&
+            (lastLi.style.color = 'red') &&
+                (
+
+                    lastLi.addEventListener('click', function() {
+                        const siblingEle = this.parentNode.nextElementSibling;
+                        siblingEle &&
+                        (siblingEle.style.display = "block")
+                    })
+                )
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <h3>每毕</h3>
+            <ul>
+                <li>循环+判断</li>
+                <li>数组+对象</li>
+                <li>函数</li>
+            </ul>
+        </div>
+        <div class="box">
+            <h3>小B</h3>
+            <ul>
+                <li>Websocket</li>
+                <li>nodeSocket</li>
+                <li>下载A</li>
+                <li>Float</li>
+                <li>Position</li>
+                <li>轮播图</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
